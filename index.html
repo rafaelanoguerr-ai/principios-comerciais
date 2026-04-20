@@ -37,7 +37,7 @@
     nav {
       position: fixed;
       top: 0; left: 0;
-      width: 240px;
+      width: 220px;
       height: 100vh;
       background: var(--bg2);
       border-right: 1px solid var(--border);
@@ -104,7 +104,7 @@
 
     /* ── MAIN ── */
     main {
-      margin-left: 240px;
+      margin-left: 220px;
       flex: 1;
       min-height: 100vh;
     }
@@ -113,7 +113,7 @@
     .hero {
       background: linear-gradient(135deg, #0b0d10 0%, #131720 60%, #1a1208 100%);
       border-bottom: 1px solid var(--border);
-      padding: 72px 64px 64px;
+      padding: 48px 36px;
       position: relative;
       overflow: hidden;
     }
@@ -159,37 +159,11 @@
       color: var(--muted);
       max-width: 560px;
       line-height: 1.7;
-      margin-bottom: 36px;
-    }
-
-    .hero-meta {
-      display: flex;
-      gap: 32px;
-    }
-
-    .hero-meta-item {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .hero-meta-item .label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .hero-meta-item .value {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text);
     }
 
     /* ── SECTIONS ── */
     .content {
-      padding: 0 64px 80px;
+      padding: 0 28px 80px;
     }
 
     section {
@@ -236,9 +210,9 @@
     }
 
     /* ── CARDS GRID ── */
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-    .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 14px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; width: 100%; }
+    .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 14px; width: 100%; }
 
     .card {
       background: var(--bg2);
@@ -337,65 +311,6 @@
       font-size: 13px;
       color: var(--text);
       line-height: 1.7;
-    }
-
-    /* ── ETIQUETAS ── */
-    .tags-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 14px;
-    }
-
-    .tag-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      transition: border-color 0.2s;
-    }
-
-    .tag-card:hover { border-color: rgba(232,118,0,0.3); }
-
-    .tag-badge {
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .tag-frio    { background: #1a2a3a; color: #5ba4cf; border: 1px solid #2a4060; }
-    .tag-morno   { background: #2a2010; color: #d49a3a; border: 1px solid #4a3820; }
-    .tag-quente  { background: #3a1010; color: #e05050; border: 1px solid #602020; }
-    .tag-nego    { background: #2a1a3a; color: #c080e0; border: 1px solid #4a2a6a; }
-    .tag-opor    { background: #1a2a1a; color: #60c060; border: 1px solid #2a4a2a; }
-    .tag-venda   { background: #1a2a1a; color: #40e090; border: 1px solid #2a5a3a; }
-    .tag-desc    { background: #1e1e20; color: #606070; border: 1px solid #303040; }
-    .tag-meteor  { background: #3a2000; color: #E87600; border: 1px solid #6a4000; }
-
-    .tag-card .tag-info h4 {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 4px;
-    }
-
-    .tag-card .tag-info p {
-      font-size: 12.5px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .tag-card .tag-action {
-      margin-top: 8px;
-      font-size: 12px;
-      color: var(--orange);
-      font-weight: 600;
     }
 
     /* ── ROTINA / TIMELINE ── */
@@ -522,6 +437,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
+      width: 100%;
     }
 
     .cultura-card {
@@ -572,6 +488,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
+      width: 100%;
     }
 
     .ment-card {
@@ -713,14 +630,6 @@
     .script-step.active { background: var(--orange-dim); }
     .script-step.active .step-name { color: var(--orange); }
 
-    .script-arrow {
-      display: flex;
-      align-items: center;
-      color: var(--muted);
-      font-size: 12px;
-      padding: 0 4px;
-    }
-
     /* ── REGRAS ── */
     .regra {
       display: flex;
@@ -750,8 +659,8 @@
 
     /* ── FOOTER ── */
     footer {
-      margin-left: 240px;
-      padding: 32px 64px;
+      margin-left: 220px;
+      padding: 32px 28px;
       border-top: 1px solid var(--border);
       display: flex;
       align-items: center;
@@ -773,9 +682,9 @@
       nav { width: 200px; }
       main { margin-left: 200px; }
       footer { margin-left: 200px; }
-      .hero { padding: 48px 40px; }
+      .hero { padding: 40px 24px; }
       .hero h1 { font-size: 40px; }
-      .content { padding: 0 40px 60px; }
+      .content { padding: 0 24px 60px; }
       .grid-3 { grid-template-columns: 1fr 1fr; }
       .grid-4 { grid-template-columns: 1fr 1fr; }
     }
@@ -798,7 +707,6 @@
   <a href="#mentalidade"><span class="dot"></span>Mentalidade do Vendedor</a>
   <a href="#principios"><span class="dot"></span>Princípios Comerciais</a>
   <a href="#atendimento"><span class="dot"></span>Atendimento 5 Estrelas</a>
-  <a href="#etiquetas"><span class="dot"></span>Sistema de Etiquetas</a>
   <a href="#followup"><span class="dot"></span>Follow Up Assertivo</a>
   <a href="#rotina"><span class="dot"></span>Rotina do Vendedor</a>
   <a href="#reativacao"><span class="dot"></span>Reativação</a>
@@ -812,24 +720,10 @@
 <main>
   <div class="hero">
     <div class="hero-eyebrow">🎯 Treinamento de Vendas</div>
-    <h1>Princípios<br /><span>Comerciais</span></h1>
+    <h1><span style="color:#ffffff;display:block;font-size:52px;font-weight:900;letter-spacing:-1.5px;line-height:1.1;">Princípios</span><span style="color:#E87600;font-size:52px;font-weight:900;letter-spacing:-1.5px;">Comerciais</span></h1>
     <p>
       O manual completo para construir uma mentalidade vencedora, dominar o processo de atendimento e executar a rotina que gera resultado consistente.
     </p>
-    <div class="hero-meta">
-      <div class="hero-meta-item">
-        <span class="label">Empresa</span>
-        <span class="value">WebScale</span>
-      </div>
-      <div class="hero-meta-item">
-        <span class="label">Formato</span>
-        <span class="value">Aula ao Vivo</span>
-      </div>
-      <div class="hero-meta-item">
-        <span class="label">Audiência</span>
-        <span class="value">Time Comercial</span>
-      </div>
-    </div>
   </div>
 
   <div class="content">
@@ -911,12 +805,12 @@
 
       </div>
 
-      <!-- LINHA 2: 20/80 + Recuperação -->
+      <!-- LINHA 2: 80/20 + Recuperação -->
       <div class="mentalidade-grid" style="margin-top:16px;">
 
         <div class="ment-card">
           <div class="ment-num">05</div>
-          <h3>A Lei dos 20/80 — Foco em Quem Vai Comprar</h3>
+          <h3>A Lei dos 80/20 — Foco em Quem Vai Comprar</h3>
           <p>
             Uma das verdades mais libertadoras do comercial: <strong style="color:var(--orange);">20% dos seus leads vão comprar — 80% não vão.</strong> Isso não é falha sua, não é produto ruim, não é preço errado. É a natureza do mercado e da jornada de compra. O erro fatal é gastar energia emocional tentando forçar os 80% ao invés de maximizar a conversão dos 20%.
           </p>
@@ -1023,7 +917,7 @@
       <div class="section-header">
         <div class="section-number">02</div>
         <div>
-          <h2>Princípios Comerciais</h2>
+          <h2>Princípios Comerciais Técnicos</h2>
           <div class="subtitle">As verdades que guiam cada decisão dentro do comercial.</div>
         </div>
       </div>
@@ -1071,10 +965,10 @@
       <div class="principio">
         <div class="principio-header">
           <span class="principio-badge">Princípio 05</span>
-          <h3>Voz de Comando — você conduz, não o lead</h3>
+          <h3>Voz de Comando — Você Conduz, Não o Lead</h3>
         </div>
         <p>
-          Quem tem voz de comando no atendimento não é autoritário — é condutor. Significa que você sabe para onde está levando a conversa, faz as perguntas certas, direciona o lead com segurança e não deixa o atendimento se perder em tangentes. Um vendedor que deixa o lead conduzir a conversa perde o controle do processo e dificilmente chegará no fechamento de forma natural. Você lidera a conversa com perguntas — o lead lidera as respostas.
+          Voz de comando é a capacidade de liderar o ritmo e a direção da conversa sem que o lead perceba que está sendo conduzido. É diferente de ser impositivo ou agressivo — é ser o ponto de referência da conversa. O vendedor que perde a voz de comando perde o controle do atendimento: o lead começa a ditar o tema, o ritmo e o desfecho. Voz de comando se expressa nas perguntas que você faz, na forma como você direciona as respostas e na segurança com que você avança entre as etapas do script. Quem conduz a conversa, conduz a venda.
         </p>
       </div>
 
@@ -1128,65 +1022,50 @@
         <div class="step">
           <div class="step-num">1</div>
           <div class="step-body">
-            <h3>Quebra de Padrão e Ganho de Atenção</h3>
+            <h3>Quebra de Padrão — Conduzindo a Conversa</h3>
             <p>
-              Todo lead que entra no Whatsapp está com a cabeça em mil lugares ao mesmo tempo. Antes de qualquer coisa, você precisa capturar a atenção real dele — não apenas uma leitura de mensagem. A quebra de padrão é o primeiro movimento: algo diferente do esperado, que faça o lead parar e prestar atenção no que está vindo.
+              A quebra de padrão não é só uma frase de efeito — é uma estratégia de condução. O mercado está cheio de abordagens iguais: o mesmo tom, o mesmo ritmo, as mesmas perguntas. Quando você chega diferente, você já vence a primeira batalha: a atenção. O objetivo aqui é entrar na conversa de um jeito que o lead não estava esperando — quebrando o padrão de como ele é abordado normalmente — e, ao mesmo tempo, trazê-lo para uma estrutura de conversa que você está conduzindo. Você não está respondendo. Você está direcionando.
             </p>
-            <div class="detail">
-              <strong>Como fazer:</strong> Evite aberturas genéricas como "Olá, tudo bem?". Vá direto para algo relevante para ele — uma referência ao contexto de onde ele veio (anúncio, story, indicação), uma pergunta intrigante, ou uma afirmação que crie curiosidade imediata. O objetivo é: ele sair do piloto automático e entrar na conversa de verdade.
-            </div>
           </div>
         </div>
 
         <div class="step">
           <div class="step-num">2</div>
           <div class="step-body">
-            <h3>Introdução</h3>
+            <h3>Introdução — Credibilidade Visual e Promessa</h3>
             <p>
-              Depois de ter a atenção, você se apresenta de forma estratégica. Não é apenas dizer nome e empresa — é construir credibilidade em 2 ou 3 linhas. O lead precisa entender quem você é e por que vale a pena continuar nessa conversa.
+              A introdução vai muito além de dizer seu nome e empresa. Ela é construída para gerar credibilidade antes mesmo de o lead ler o conteúdo. Credibilidade visual começa na forma: use letras maiúsculas onde necessário, chame a pessoa pelo nome, dê espaço entre os blocos de mensagem e nunca dispare várias mensagens seguidas sem pausa. Essas escolhas passam profissionalismo, autoridade e respeito pelo tempo do lead. O conteúdo da introdução precisa reforçar a promessa — o que você entrega e por que vale a pena continuar essa conversa. A primeira impressão no WhatsApp é visual antes de ser textual.
             </p>
-            <div class="detail">
-              <strong>Como fazer:</strong> Apresente-se com confiança, cite o contexto (empresa, solução), e já conecte ao lead: "Falo com quem está buscando [resultado específico]". Isso filtra e qualifica o lead logo no início, além de passar autoridade desde o primeiro momento.
-            </div>
           </div>
         </div>
 
         <div class="step">
           <div class="step-num">3</div>
           <div class="step-body">
-            <h3>Mapeamento — A Etapa Mais Importante</h3>
+            <h3>Mapeamento — Modo FBI</h3>
             <p>
-              O mapeamento é o coração do atendimento consultivo. É aqui que você descobre a realidade do lead: onde ele está, para onde quer ir, o que já tentou, o que está travando. Sem esse mapeamento, você apresenta solução às cegas — e solução apresentada sem contexto não converte.
+              O mapeamento é o coração do atendimento. É o momento em que você para de falar e começa a investigar. O "Modo FBI" é a postura de quem entra em uma conversa para entender, não para convencer. São perguntas que abrem contexto, revelam dores reais, identificam o momento de vida do lead e descobrem o que o impede de avançar. Quanto mais rico o mapeamento, mais cirúrgica será a apresentação de solução. Um lead que sente que foi ouvido de verdade já está meio caminho andado para comprar. O mapeamento é onde a venda real começa — não na apresentação de produto.
             </p>
-            <div class="detail">
-              <strong>Como fazer:</strong> Use perguntas abertas e sequenciais. Ouça mais do que fala. Quanto mais informação você coleta aqui, mais personalizada e precisa será a sua apresentação de solução. Perguntas chave: qual é o maior desafio hoje? O que você já fez para resolver? Qual resultado você precisa ter daqui a X meses?
-            </div>
           </div>
         </div>
 
         <div class="step">
           <div class="step-num">4</div>
           <div class="step-body">
-            <h3>Benefício — Conecte a Solução à Dor Mapeada</h3>
+            <h3>Benefício — Transformação, Prova e Metodologia</h3>
             <p>
-              Agora que você sabe exatamente o que o lead precisa, você apresenta como a solução resolve aquele problema específico. Não é um pitch genérico — é uma apresentação personalizada com base no mapeamento. O lead precisa ouvir a própria dor sendo reconhecida e depois ver como a solução resolve exatamente aquilo.
+              Com o mapeamento feito, agora você apresenta a solução conectada diretamente à dor do lead. O benefício não é uma lista de features — é a apresentação de transformação: onde o lead está hoje, onde ele vai estar depois. Use prova social para ancorar a credibilidade: resultados reais de quem já passou por esse caminho. Apresente a metodologia — o caminho que torna o resultado previsível. Isso elimina a percepção de risco e cria desejo real. Benefício bem apresentado faz o lead querer comprar antes mesmo de você falar de preço.
             </p>
-            <div class="detail">
-              <strong>Como fazer:</strong> Use a estrutura: "Você me falou que [dor do lead]. A nossa solução resolve isso porque [benefício direto]. Isso significa que [resultado que o lead vai ter]." Seja específico. Benefício vago não converte. Benefício colado na dor real do lead, sim.
-            </div>
           </div>
         </div>
 
         <div class="step">
           <div class="step-num">5</div>
           <div class="step-body">
-            <h3>Racional — O 80/20 do Fechamento</h3>
+            <h3>Racional — Apresentação de Produto e Negociação</h3>
             <p>
-              O racional é o argumento lógico-financeiro que justifica a decisão de compra. Muitas pessoas querem comprar mas precisam de uma justificativa racional para si mesmas (ou para o cônjuge, sócio, etc.). O racional entrega exatamente isso: por que faz sentido fazer isso agora, do ponto de vista prático e de retorno.
+              O racional é onde o comercial se fecha. É a apresentação do produto com clareza total: o que está incluso, o investimento, as condições. É também o momento de negociação — quando o lead traz objeções de preço, parcelamento ou timing, você usa o racional para manter o valor da oferta sem desmontar a proposta. O racional é o 80/20 da venda: 80% das vendas se resolvem com uma apresentação clara e uma negociação honesta. Não é sobre convencer à força — é sobre remover o último obstáculo entre o lead e a decisão.
             </p>
-            <div class="detail">
-              <strong>Como fazer:</strong> Apresente o retorno sobre o investimento de forma clara. Compare o custo da solução com o custo do problema não resolvido. Use números quando possível. Mostre que a lógica favorece a compra — e que não comprar tem um custo maior do que comprar.
-            </div>
           </div>
         </div>
       </div>
@@ -1204,103 +1083,10 @@
     </section>
     <div class="divider"></div>
 
-    <!-- ══════════════════════ 4. ETIQUETAS ══════════════════════ -->
-    <section id="etiquetas">
-      <div class="section-header">
-        <div class="section-number">04</div>
-        <div>
-          <h2>Sistema de Etiquetas</h2>
-          <div class="subtitle">O mapa que organiza todo o seu funil de atendimento no CRM.</div>
-        </div>
-      </div>
-
-      <p style="font-size:14px; color:var(--muted); line-height:1.75; margin-bottom:28px; max-width:680px;">
-        Etiquetas não são burocracia — são inteligência comercial. Elas dizem exatamente onde cada lead está na jornada e qual é o próximo passo. Um funil bem etiquetado é um funil que você controla. Sem etiquetas, você está gerenciando vendas no escuro.
-      </p>
-
-      <div class="tags-grid">
-
-        <div class="tag-card">
-          <span class="tag-badge tag-frio">Lead Frio</span>
-          <div class="tag-info">
-            <h4>Chegada de Leads</h4>
-            <p>Lead recém-chegado, sem interação ainda. Taxa de primeira resposta é o KPI crítico aqui.</p>
-            <div class="tag-action">→ Ação: Primeiro contato imediato, quebra de padrão</div>
-          </div>
-        </div>
-
-        <div class="tag-card">
-          <span class="tag-badge tag-morno">Lead Morno</span>
-          <div class="tag-info">
-            <h4>Respondeu, Não Avançou</h4>
-            <p>Houve interação, mas o lead não chegou na oferta ainda. Está no meio do processo de atendimento.</p>
-            <div class="tag-action">→ Ação: Continuar mapeamento, nutrir com benefício</div>
-          </div>
-        </div>
-
-        <div class="tag-card">
-          <span class="tag-badge tag-quente">Lead Quente</span>
-          <div class="tag-info">
-            <h4>Chegou na Oferta</h4>
-            <p>Lead já viu o preço e a proposta. É prioridade máxima no follow up diário.</p>
-            <div class="tag-action">→ Ação: Follow up diário, racional, urgência</div>
-          </div>
-        </div>
-
-        <div class="tag-card">
-          <span class="tag-badge tag-nego">Negociação</span>
-          <div class="tag-info">
-            <h4>Esperando o Momento de Compra</h4>
-            <p>Lead quer comprar mas tem um impedimento pontual: cartão virando, salário chegando, data específica.</p>
-            <div class="tag-action">→ Ação: Registrar data, follow up no dia exato</div>
-          </div>
-        </div>
-
-        <div class="tag-card">
-          <span class="tag-badge tag-opor">Oportunidade</span>
-          <div class="tag-info">
-            <h4>Links Prováveis</h4>
-            <p>Lead recebeu o link de compra. Alta probabilidade de conversão — monitorar de perto.</p>
-            <div class="tag-action">→ Ação: Follow up assertivo, remover obstáculos</div>
-          </div>
-        </div>
-
-        <div class="tag-card">
-          <span class="tag-badge tag-venda">Venda</span>
-          <div class="tag-info">
-            <h4>Comprou</h4>
-            <p>Entrou em contato, foi mapeado, conheceu o preço e comprou. Missão cumprida.</p>
-            <div class="tag-action">→ Ação: Registrar venda, atualizar projeção, onboarding</div>
-          </div>
-        </div>
-
-        <div class="tag-card">
-          <span class="tag-badge tag-desc">Descarte</span>
-          <div class="tag-info">
-            <h4>Motivos de Perda</h4>
-            <p>Lead não vai comprar agora. Registrar o motivo é essencial para inteligência do funil.</p>
-            <div class="tag-action">→ Ação: Registrar motivo na base de dados, arquivar</div>
-          </div>
-        </div>
-
-        <div class="tag-card">
-          <span class="tag-badge tag-meteor">METEÓRICO</span>
-          <div class="tag-info">
-            <h4>Lead / Link / Compra Meteórica</h4>
-            <p>Movimento ultra-rápido no funil: lead que entra e compra em menos de 24h, sem muita nutrição.</p>
-            <div class="tag-action">→ Ação: Prioridade máxima, resposta imediata</div>
-          </div>
-        </div>
-
-      </div>
-
-    </section>
-    <div class="divider"></div>
-
-    <!-- ══════════════════════ 5. FOLLOW UP ══════════════════════ -->
+    <!-- ══════════════════════ 4. FOLLOW UP ══════════════════════ -->
     <section id="followup">
       <div class="section-header">
-        <div class="section-number">05</div>
+        <div class="section-number">04</div>
         <div>
           <h2>Follow Up Assertivo</h2>
           <div class="subtitle">A arte de manter o lead engajado sem parecer desesperado.</div>
@@ -1339,9 +1125,9 @@
       <div class="highlight-box" style="margin-top:24px;">
         <h3>📋 Sequência de Follow Up por Etiqueta</h3>
         <ul>
-          <li><strong>Frio Dia:</strong> Lead ignorou a primeira copy — follow com abordagem diferente, ângulo novo</li>
-          <li><strong>Morno Dia:</strong> Avançou e parou antes da oferta — retomar com benefício personalizado</li>
-          <li><strong>Quente Dia:</strong> Já viu oferta, não fechou — racional + urgência + remover objeção</li>
+          <li><strong>Lead Frio Dia:</strong> Lead ignorou a primeira copy — follow com abordagem diferente, ângulo novo</li>
+          <li><strong>Lead Morno Dia:</strong> Avançou e parou antes da oferta — retomar com benefício personalizado</li>
+          <li><strong>Lead Quente Dia:</strong> Já viu oferta, não fechou — racional + urgência + remover objeção</li>
           <li><strong>Prazo a pagar (5 dias):</strong> Lead em negociação aguardando data — follow no dia, sem falta</li>
           <li><strong>Mornos + últimos 3 dias:</strong> Reativar com novo ângulo ou conteúdo relevante</li>
         </ul>
@@ -1350,10 +1136,10 @@
     </section>
     <div class="divider"></div>
 
-    <!-- ══════════════════════ 6. ROTINA ══════════════════════ -->
+    <!-- ══════════════════════ 5. ROTINA ══════════════════════ -->
     <section id="rotina">
       <div class="section-header">
-        <div class="section-number">06</div>
+        <div class="section-number">05</div>
         <div>
           <h2>Rotina do Vendedor 5 Estrelas</h2>
           <div class="subtitle">O dia-a-dia estruturado que transforma esforço em resultado previsível.</div>
@@ -1446,10 +1232,10 @@
     </section>
     <div class="divider"></div>
 
-    <!-- ══════════════════════ 7. REATIVAÇÃO ══════════════════════ -->
+    <!-- ══════════════════════ 6. REATIVAÇÃO ══════════════════════ -->
     <section id="reativacao">
       <div class="section-header">
-        <div class="section-number">07</div>
+        <div class="section-number">06</div>
         <div>
           <h2>Reativação</h2>
           <div class="subtitle">Transformar leads parados em vendas reais.</div>
@@ -1476,17 +1262,17 @@
       <div class="grid-3">
         <div class="card">
           <div class="card-icon">🧊</div>
-          <h3>Reativação — Frio</h3>
+          <h3>Lead Frio</h3>
           <p>Lead ignorou a primeira copy. Aborde por um ângulo completamente diferente: novo benefício, nova prova social, nova urgência. Não repita o mesmo que ele ignorou.</p>
         </div>
         <div class="card">
           <div class="card-icon">🌡️</div>
-          <h3>Reativação — Morno</h3>
+          <h3>Lead Morno</h3>
           <p>Avançou e parou antes da oferta. Ele chegou a se interessar — algo travou. Volte ao mapeamento: o que travou? Retome pelo ponto de parada com mais contexto.</p>
         </div>
         <div class="card">
           <div class="card-icon">🔥</div>
-          <h3>Reativação — Quente</h3>
+          <h3>Lead Quente</h3>
           <p>Já viu a oferta, não fechou. Aqui é racional + urgência. Reforce o custo de não comprar. Pergunte diretamente o que falta para decidir.</p>
         </div>
       </div>
@@ -1504,10 +1290,10 @@
     </section>
     <div class="divider"></div>
 
-    <!-- ══════════════════════ 8. CULTURA ══════════════════════ -->
+    <!-- ══════════════════════ 7. CULTURA ══════════════════════ -->
     <section id="cultura">
       <div class="section-header">
-        <div class="section-number">08</div>
+        <div class="section-number">07</div>
         <div>
           <h2>Cultura Comercial</h2>
           <div class="subtitle">Os valores que definem como operamos como time.</div>
