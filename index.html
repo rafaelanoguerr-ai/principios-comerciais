@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Princípios Comerciais — WebScale</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange: #E87600;
+      --orange-light: #FF8C1A;
+      --orange-dim: rgba(232, 118, 0, 0.12);
+      --bg: #0b0d10;
+      --bg2: #111318;
+      --bg3: #181b22;
+      --border: rgba(255,255,255,0.07);
+      --text: #e8eaf0;
+      --muted: #7a8099;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ── SIDEBAR ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: 240px;
+      height: 100vh;
+      background: var(--bg2);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      padding: 28px 0 20px;
+      overflow-y: auto;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      padding: 0 24px 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+
+    .nav-logo img {
+      width: 140px;
+      object-fit: contain;
+    }
+
+    .nav-logo .fallback-logo {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--orange);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 8px 24px 6px;
+    }
+
+    nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 24px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      border-left: 2px solid transparent;
+      transition: all 0.15s;
+      line-height: 1.3;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--orange);
+      border-left-color: var(--orange);
+      background: var(--orange-dim);
+    }
+
+    nav a .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* ── MAIN ── */
+    main {
+      margin-left: 240px;
+      flex: 1;
+      min-height: 100vh;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #0b0d10 0%, #131720 60%, #1a1208 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 72px 64px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(232,118,0,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--orange);
+      background: var(--orange-dim);
+      border: 1px solid rgba(232,118,0,0.25);
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span { color: var(--orange); }
+
+    .hero p {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 32px;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .hero-meta-item .label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hero-meta-item .value {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* ── SECTIONS ── */
+    .content {
+      padding: 0 64px 80px;
+    }
+
+    section {
+      padding-top: 72px;
+      padding-bottom: 16px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .section-number {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: var(--orange-dim);
+      border: 1px solid rgba(232,118,0,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--orange);
+      flex-shrink: 0;
+    }
+
+    .section-header h2 {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--white);
+    }
+
+    .section-header .subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 48px 0 0;
+    }
+
+    /* ── CARDS GRID ── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+    .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 14px; }
+
+    .card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: border-color 0.2s;
+    }
+
+    .card:hover { border-color: rgba(232,118,0,0.3); }
+
+    .card .card-icon {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .card p {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .card.highlight {
+      border-color: rgba(232,118,0,0.35);
+      background: linear-gradient(135deg, var(--bg2) 0%, rgba(232,118,0,0.04) 100%);
+    }
+
+    .card .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--orange);
+      background: var(--orange-dim);
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    /* ── PILARES / STEPS ── */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .step {
+      display: flex;
+      gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .step:last-child { border-bottom: none; }
+
+    .step-num {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: #000;
+      font-size: 16px;
+      font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .step-body h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .step-body p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .step-body .detail {
+      margin-top: 12px;
+      padding: 12px 16px;
+      background: var(--bg3);
+      border-radius: 8px;
+      border-left: 3px solid var(--orange);
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── ETIQUETAS ── */
+    .tags-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .tag-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: border-color 0.2s;
+    }
+
+    .tag-card:hover { border-color: rgba(232,118,0,0.3); }
+
+    .tag-badge {
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .tag-frio    { background: #1a2a3a; color: #5ba4cf; border: 1px solid #2a4060; }
+    .tag-morno   { background: #2a2010; color: #d49a3a; border: 1px solid #4a3820; }
+    .tag-quente  { background: #3a1010; color: #e05050; border: 1px solid #602020; }
+    .tag-nego    { background: #2a1a3a; color: #c080e0; border: 1px solid #4a2a6a; }
+    .tag-opor    { background: #1a2a1a; color: #60c060; border: 1px solid #2a4a2a; }
+    .tag-venda   { background: #1a2a1a; color: #40e090; border: 1px solid #2a5a3a; }
+    .tag-desc    { background: #1e1e20; color: #606070; border: 1px solid #303040; }
+    .tag-meteor  { background: #3a2000; color: #E87600; border: 1px solid #6a4000; }
+
+    .tag-card .tag-info h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .tag-card .tag-info p {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .tag-card .tag-action {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--orange);
+      font-weight: 600;
+    }
+
+    /* ── ROTINA / TIMELINE ── */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px; top: 8px; bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--orange) 0%, rgba(232,118,0,0.1) 100%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 28px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -22px; top: 14px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--orange);
+      border: 2px solid var(--bg);
+    }
+
+    .timeline-time {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--orange);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .timeline-box {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+
+    .timeline-box h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .timeline-box ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .timeline-box ul li {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .timeline-box ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--orange);
+      font-size: 11px;
+    }
+
+    .timeline-box .rule {
+      margin-top: 12px;
+      padding: 10px 14px;
+      background: rgba(232,118,0,0.08);
+      border: 1px solid rgba(232,118,0,0.25);
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(232,118,0,0.08) 0%, rgba(232,118,0,0.03) 100%);
+      border: 1px solid rgba(232,118,0,0.3);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 24px 0;
+    }
+
+    .highlight-box h3 {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--orange);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .highlight-box p, .highlight-box li {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    .highlight-box ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .highlight-box ul li { padding-left: 18px; position: relative; }
+    .highlight-box ul li::before { content: '✓'; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
+
+    /* ── CULTURA CARDS ── */
+    .cultura-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .cultura-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+    }
+
+    .cultura-card .cultura-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .cultura-card h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+    }
+
+    .cultura-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .cultura-card .pillars {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .cultura-card .pillar-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--orange);
+      background: var(--orange-dim);
+      border: 1px solid rgba(232,118,0,0.25);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* ── MENTALIDADE ── */
+    .mentalidade-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .ment-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .ment-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--orange);
+    }
+
+    .ment-card:hover { border-color: rgba(232,118,0,0.35); }
+
+    .ment-num {
+      font-size: 48px;
+      font-weight: 900;
+      color: rgba(232,118,0,0.12);
+      line-height: 1;
+      margin-bottom: 8px;
+      letter-spacing: -2px;
+    }
+
+    .ment-card h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+    }
+
+    .ment-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .ment-card .quote {
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: var(--bg3);
+      border-radius: 8px;
+      border-left: 3px solid var(--orange);
+      font-size: 13px;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── PRINCÍPIO CARDS ── */
+    .principio {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 14px;
+      transition: border-color 0.2s;
+    }
+
+    .principio:hover { border-color: rgba(232,118,0,0.3); }
+
+    .principio-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .principio-badge {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--orange);
+      background: var(--orange-dim);
+      border: 1px solid rgba(232,118,0,0.25);
+      padding: 4px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .principio h3 {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--white);
+    }
+
+    .principio p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ── SCRIPT ATENDIMENTO ── */
+    .script-flow {
+      display: flex;
+      gap: 0;
+      margin-bottom: 32px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .script-step {
+      flex: 1;
+      padding: 16px 14px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+      position: relative;
+    }
+
+    .script-step:last-child { border-right: none; }
+
+    .script-step .step-n {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .script-step .step-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    .script-step.active { background: var(--orange-dim); }
+    .script-step.active .step-name { color: var(--orange); }
+
+    .script-arrow {
+      display: flex;
+      align-items: center;
+      color: var(--muted);
+      font-size: 12px;
+      padding: 0 4px;
+    }
+
+    /* ── REGRAS ── */
+    .regra {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 18px 20px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .regra .regra-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .regra p {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.7;
+      font-weight: 500;
+    }
+
+    .regra p strong { color: var(--orange); }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-left: 240px;
+      padding: 32px 64px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    footer .footer-logo {
+      font-size: 14px;
+      font-weight: 900;
+      color: var(--orange);
+    }
+
+    @media (max-width: 1024px) {
+      nav { width: 200px; }
+      main { margin-left: 200px; }
+      footer { margin-left: 200px; }
+      .hero { padding: 48px 40px; }
+      .hero h1 { font-size: 40px; }
+      .content { padding: 0 40px 60px; }
+      .grid-3 { grid-template-columns: 1fr 1fr; }
+      .grid-4 { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ SIDEBAR ═══════════════════════════════ -->
+<nav>
+  <div class="nav-logo">
+    <img
+      src="https://drive.google.com/uc?export=view&id=1dGJfkdmSRYmqz1toKu66fVj1hQsSMgxH"
+      alt="WebScale"
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+    />
+    <div class="fallback-logo" style="display:none;">WEBSC▲LE.</div>
+  </div>
+
+  <span class="nav-label">Conteúdo</span>
+  <a href="#mentalidade"><span class="dot"></span>Mentalidade do Vendedor</a>
+  <a href="#principios"><span class="dot"></span>Princípios Comerciais</a>
+  <a href="#atendimento"><span class="dot"></span>Atendimento 5 Estrelas</a>
+  <a href="#etiquetas"><span class="dot"></span>Sistema de Etiquetas</a>
+  <a href="#followup"><span class="dot"></span>Follow Up Assertivo</a>
+  <a href="#rotina"><span class="dot"></span>Rotina do Vendedor</a>
+  <a href="#reativacao"><span class="dot"></span>Reativação</a>
+  <a href="#cultura"><span class="dot"></span>Cultura Comercial</a>
+
+  <span class="nav-label" style="margin-top:auto;">Time</span>
+  <a href="#"><span class="dot"></span>WebScale — 2026</a>
+</nav>
+
+<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<main>
+  <div class="hero">
+    <div class="hero-eyebrow">🎯 Treinamento de Vendas</div>
+    <h1>Princípios<br /><span>Comerciais</span></h1>
+    <p>
+      O manual completo para construir uma mentalidade vencedora, dominar o processo de atendimento e executar a rotina que gera resultado consistente.
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="label">Empresa</span>
+        <span class="value">WebScale</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Formato</span>
+        <span class="value">Aula ao Vivo</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Audiência</span>
+        <span class="value">Time Comercial</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- ══════════════════════ 1. MENTALIDADE ══════════════════════ -->
+    <section id="mentalidade">
+      <div class="section-header">
+        <div class="section-number">01</div>
+        <div>
+          <h2>A Mentalidade do Vendedor Vencedor</h2>
+          <div class="subtitle">Antes da técnica, vem a cabeça. Sem isso, nada funciona.</div>
+        </div>
+      </div>
+
+      <div class="highlight-box" style="margin-bottom:32px;">
+        <h3>⚡ A base de tudo</h3>
+        <p>
+          Antes de falar de script, etiqueta ou rotina, precisamos calibrar o que está na cabeça. Vendas começa na mente. O vendedor que não cuida da sua mentalidade chega no campo já derrotado — independente de qual ferramenta ou processo ele use.
+        </p>
+      </div>
+
+      <div class="mentalidade-grid">
+
+        <div class="ment-card">
+          <div class="ment-num">01</div>
+          <h3>Valorize a Profissão que Você Escolheu</h3>
+          <p>
+            A profissão de vendas é, historicamente, uma das mais subjugadas do mercado. Existe um preconceito cultural enraizado que associa vendedor a manipulação, pressão ou oportunismo. Isso é um erro grave — e você não pode deixar esse preconceito habitar a sua própria cabeça.
+          </p>
+          <p style="margin-top:10px;">
+            Vendas é a profissão que move toda economia. Nenhuma empresa existe sem alguém que venda. Nenhum produto chega às mãos de quem precisa sem um vendedor que conectou solução e problema. Entender isso muda o jogo.
+          </p>
+          <div class="quote">
+            "Se você não acredita que a sua profissão tem valor, o seu cliente vai sentir isso — e não vai comprar. Autoestima e autoconfiança não são opcionais no comercial: são pré-requisito."
+          </div>
+        </div>
+
+        <div class="ment-card">
+          <div class="ment-num">02</div>
+          <h3>Mentalidade Estratégica — Não Seja 100% Operacional</h3>
+          <p>
+            Um dos maiores erros de quem está no comercial é ficar preso na operação: responder lead, fechar venda, passar para o próximo. Ciclo infinito, sem crescimento. Esse caminho não leva a lugar nenhum.
+          </p>
+          <p style="margin-top:10px;">
+            O vendedor que quer crescer na carreira precisa perguntar: <strong style="color:var(--orange);">como o meu trabalho agrega para a operação além do faturamento?</strong> Isso significa entender métricas, qualidade de lead, canais de aquisição, padrões de objeção e comportamento do mercado.
+          </p>
+          <div class="quote">
+            "Seja o vendedor que traz inteligência para a reunião — não só números. Quem pensa estrategicamente sobre o próprio trabalho é quem lidera times no futuro."
+          </div>
+        </div>
+
+        <div class="ment-card">
+          <div class="ment-num">03</div>
+          <h3>Resiliência — Levanta e Segue</h3>
+          <p>
+            No comercial, o "não" é a resposta padrão. Não é exceção — é a regra. O vendedor que não tem resiliência vai ser destruído psicologicamente nas primeiras semanas de trabalho.
+          </p>
+          <p style="margin-top:10px;">
+            Resiliência não significa não sentir o impacto do não. Significa absorver, processar rápido e já estar disponível para o próximo atendimento sem carregar o peso do anterior. A capacidade de resetar entre conversas é o que separa o mediano do excelente.
+          </p>
+          <div class="quote">
+            "Cada 'não' é informação, não derrota. Ele te diz algo sobre o lead, sobre o pitch, sobre o timing — se você souber ouvir."
+          </div>
+        </div>
+
+        <div class="ment-card">
+          <div class="ment-num">04</div>
+          <h3>Resistência — Foco em Quem Quer Comprar</h3>
+          <p>
+            Resistência é diferente de resiliência: é a capacidade de manter o padrão de trabalho alto mesmo sob volume e pressão. Vai chegar muito lead desqualificado, vai chegar volume, vai ter dias em que parece que ninguém quer comprar nada.
+          </p>
+          <p style="margin-top:10px;">
+            A chave aqui é simples: <strong style="color:var(--orange);">não gaste energia com quem não quer comprar.</strong> Seu foco vai para quem demonstrou interesse. Quem não quer, você etiqueta, registra e passa para o próximo. O tempo é finito — use onde tem chance real.
+          </p>
+          <div class="quote">
+            "Vendas é matemática. Quanto mais qualificado for o seu foco, melhor a sua conversão. Não é sobre trabalhar mais, é sobre trabalhar com mais inteligência."
+          </div>
+        </div>
+
+      </div>
+
+      <!-- LINHA 2: 20/80 + Recuperação -->
+      <div class="mentalidade-grid" style="margin-top:16px;">
+
+        <div class="ment-card">
+          <div class="ment-num">05</div>
+          <h3>A Lei dos 20/80 — Foco em Quem Vai Comprar</h3>
+          <p>
+            Uma das verdades mais libertadoras do comercial: <strong style="color:var(--orange);">20% dos seus leads vão comprar — 80% não vão.</strong> Isso não é falha sua, não é produto ruim, não é preço errado. É a natureza do mercado e da jornada de compra. O erro fatal é gastar energia emocional tentando forçar os 80% ao invés de maximizar a conversão dos 20%.
+          </p>
+          <p style="margin-top:10px;">
+            Entender essa lei muda completamente a relação com o "não". O não não é pessoal — é estatística. Cada recusa faz parte dos 80% que naturalmente não vão converter agora. Sua energia precisa estar calibrada para identificar rapidamente quem está nos 20% e oferecer a eles o melhor atendimento possível.
+          </p>
+          <div class="quote">
+            "Não desperdice combustível de primeiro lugar tentando rebocar quem não quer andar. Identifique os 20% e seja imbatível com eles."
+          </div>
+        </div>
+
+        <div class="ment-card">
+          <div class="ment-num">06</div>
+          <h3>Mentalidade de Recuperação — O Diferencial dos Grandes</h3>
+          <p>
+            Todo vendedor vai ter dias ruins. Dias que a meta parece impossível, que os leads somem, que o humor está baixo. Isso não é exceção — é parte da jornada. O que separa o vendedor mediano do excelente não é não ter esses dias. É <strong style="color:var(--orange);">a velocidade com que se recupera deles.</strong>
+          </p>
+          <p style="margin-top:10px;">
+            Atletas de alta performance não evitam a queda — eles treinam a recuperação. Um jogador de elite que erra um gol não carrega aquele erro no resto do jogo. Ele reseta, respira, e está 100% para a próxima jogada. No comercial é igual: o lead que rejeitou, o dia que não bateu meta, o atendimento que deu errado — tudo isso fica para trás no momento que você abre a próxima conversa. Quanto mais rápido você reseta, mais oportunidades você aproveita.
+          </p>
+          <div class="quote">
+            "Quanto mais rápido você se recupera, mais chances você tem. O vendedor que carrega o peso de cada 'não' chega descarregado na próxima oportunidade."
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FRASES DE ALTA PERFORMANCE -->
+      <div style="margin-top:40px;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:24px;">
+          <span style="font-size:22px;">💬</span>
+          <div>
+            <h3 style="font-size:17px; font-weight:800; color:var(--white); letter-spacing:-0.3px;">Alta Performance — O que os Maiores Ensinam</h3>
+            <p style="font-size:13px; color:var(--muted); margin-top:3px;">Dos maiores treinadores e atletas do mundo para o seu dia de vendas.</p>
+          </div>
+        </div>
+        <div class="grid-3">
+
+          <div class="card" style="border-left:3px solid var(--orange); padding:20px 22px;">
+            <p style="font-size:14px; font-style:italic; color:var(--text); line-height:1.8; margin-bottom:12px;">
+              "Já errei mais de 9.000 arremessos na minha carreira. Já perdi quase 300 jogos. Fui confiado para fazer o arremesso decisivo 26 vezes e errei. Já falhei repetidamente na vida — e é exatamente por isso que tive sucesso."
+            </p>
+            <div style="font-size:11px; font-weight:700; color:var(--orange); text-transform:uppercase; letter-spacing:1px;">Michael Jordan — NBA</div>
+          </div>
+
+          <div class="card" style="border-left:3px solid var(--orange); padding:20px 22px;">
+            <p style="font-size:14px; font-style:italic; color:var(--text); line-height:1.8; margin-bottom:12px;">
+              "Não é se você cai — é se você levanta."
+            </p>
+            <p style="font-size:13px; color:var(--muted); line-height:1.7; margin-bottom:12px;">
+              Lombardi construiu uma dinastia baseada não no talento, mas na capacidade de reagir ao adverso. Time que se recupera rápido vence campeonatos — e vendedores também.
+            </p>
+            <div style="font-size:11px; font-weight:700; color:var(--orange); text-transform:uppercase; letter-spacing:1px;">Vince Lombardi — NFL</div>
+          </div>
+
+          <div class="card" style="border-left:3px solid var(--orange); padding:20px 22px;">
+            <p style="font-size:14px; font-style:italic; color:var(--text); line-height:1.8; margin-bottom:12px;">
+              "O trabalho feito durante a semana é o que cria o resultado no sábado."
+            </p>
+            <p style="font-size:13px; color:var(--muted); line-height:1.7; margin-bottom:12px;">
+              Rotina vence talento quando o talento não tem rotina. O resultado do fim de mês é reflexo fiel do que você fez em cada dia da semana.
+            </p>
+            <div style="font-size:11px; font-weight:700; color:var(--orange); text-transform:uppercase; letter-spacing:1px;">Alex Ferguson — Manchester United</div>
+          </div>
+
+          <div class="card" style="border-left:3px solid var(--orange); padding:20px 22px;">
+            <p style="font-size:14px; font-style:italic; color:var(--text); line-height:1.8; margin-bottom:12px;">
+              "O processo é sobre fazer o que é necessário para ser o melhor que você pode ser. Sem atalhos."
+            </p>
+            <p style="font-size:13px; color:var(--muted); line-height:1.7; margin-bottom:12px;">
+              O treinador mais vitorioso do futebol americano universitário: resultados surgem da qualidade do processo, não da obsessão com o marcador.
+            </p>
+            <div style="font-size:11px; font-weight:700; color:var(--orange); text-transform:uppercase; letter-spacing:1px;">Nick Saban — Alabama</div>
+          </div>
+
+          <div class="card" style="border-left:3px solid var(--orange); padding:20px 22px;">
+            <p style="font-size:14px; font-style:italic; color:var(--text); line-height:1.8; margin-bottom:12px;">
+              "Se você não sente mais que existe uma brecha para fechar, você não é mais um piloto de corrida."
+            </p>
+            <p style="font-size:13px; color:var(--muted); line-height:1.7; margin-bottom:12px;">
+              Senna via oportunidade onde outros viam impossibilidade. No comercial: sempre existe uma abertura na conversa — quem não tenta já desistiu antes de começar.
+            </p>
+            <div style="font-size:11px; font-weight:700; color:var(--orange); text-transform:uppercase; letter-spacing:1px;">Ayrton Senna — Fórmula 1</div>
+          </div>
+
+          <div class="card" style="border-left:3px solid var(--orange); padding:20px 22px;">
+            <p style="font-size:14px; font-style:italic; color:var(--text); line-height:1.8; margin-bottom:12px;">
+              "A força do time é cada membro individual. A força de cada membro é o time."
+            </p>
+            <p style="font-size:13px; color:var(--muted); line-height:1.7; margin-bottom:12px;">
+              Phil Jackson treinou Jordan e Kobe. Seu maior ensinamento: performance individual se multiplica quando existe cultura coletiva forte por trás.
+            </p>
+            <div style="font-size:11px; font-weight:700; color:var(--orange); text-transform:uppercase; letter-spacing:1px;">Phil Jackson — Chicago Bulls / LA Lakers</div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+    <div class="divider"></div>
+
+    <!-- ══════════════════════ 2. PRINCÍPIOS ══════════════════════ -->
+    <section id="principios">
+      <div class="section-header">
+        <div class="section-number">02</div>
+        <div>
+          <h2>Princípios Comerciais</h2>
+          <div class="subtitle">As verdades que guiam cada decisão dentro do comercial.</div>
+        </div>
+      </div>
+
+      <div class="principio">
+        <div class="principio-header">
+          <span class="principio-badge">Princípio 01</span>
+          <h3>Marketing não fecha venda</h3>
+        </div>
+        <p>
+          Marketing gera demanda, cria desejo, posiciona a marca e educa o mercado. Mas quem fecha a venda é o vendedor. Essa distinção importa porque quando o marketing está forte, muitos vendedores relaxam achando que as vendas vão "se fechar sozinhas". Não vão. O marketing leva o lead até a porta — você precisa abrir e convidá-lo a entrar. A responsabilidade pela conversão é do comercial, sempre.
+        </p>
+      </div>
+
+      <div class="principio">
+        <div class="principio-header">
+          <span class="principio-badge">Princípio 02</span>
+          <h3>Ou compra ou bloqueia — sem meio-termo</h3>
+        </div>
+        <p>
+          Todo lead que chega tem um destino: ou avança no funil em direção à compra, ou sai. Manter lead sem movimento no funil é desperdiçar energia e distorcer as métricas. Quando você continua insistindo em um lead que claramente não vai comprar agora, está roubando tempo que poderia ser investido em alguém que compra. Aprenda a fazer o descarte com inteligência: registra o motivo, deixa a porta aberta, e segue em frente.
+        </p>
+      </div>
+
+      <div class="principio">
+        <div class="principio-header">
+          <span class="principio-badge">Princípio 03</span>
+          <h3>O cliente sabe o que quer — ele não sabe COMO quer</h3>
+        </div>
+        <p>
+          Essa é uma das percepções mais transformadoras do comercial. O lead chega com uma dor, um problema, uma aspiração — mas raramente consegue articular com clareza qual solução ele precisa. Ele sabe que quer resultado, mas não sabe qual é o melhor caminho para chegar lá. O papel do vendedor consultivo é justamente esse: fazer o mapeamento correto e apresentar a solução de forma que ela faça sentido completo para aquela pessoa, naquele momento.
+        </p>
+      </div>
+
+      <div class="principio">
+        <div class="principio-header">
+          <span class="principio-badge">Princípio 04</span>
+          <h3>Mood FBI — leia o lead antes de falar</h3>
+        </div>
+        <p>
+          Antes de sair apresentando solução, você precisa ler o estado emocional e o contexto do lead. É isso que o Mood FBI representa: uma postura investigativa e empática de quem lê a situação antes de agir. Um lead ansioso precisa de clareza. Um lead desconfiado precisa de prova. Um lead entusiasmado precisa de direcionamento rápido. Adapte o tom, o ritmo e o conteúdo do atendimento ao que o lead está trazendo — e não ao roteiro que você decorou.
+        </p>
+      </div>
+
+      <div class="principio">
+        <div class="principio-header">
+          <span class="principio-badge">Princípio 05</span>
+          <h3>Voz de Comando — você conduz, não o lead</h3>
+        </div>
+        <p>
+          Quem tem voz de comando no atendimento não é autoritário — é condutor. Significa que você sabe para onde está levando a conversa, faz as perguntas certas, direciona o lead com segurança e não deixa o atendimento se perder em tangentes. Um vendedor que deixa o lead conduzir a conversa perde o controle do processo e dificilmente chegará no fechamento de forma natural. Você lidera a conversa com perguntas — o lead lidera as respostas.
+        </p>
+      </div>
+
+      <div class="principio">
+        <div class="principio-header">
+          <span class="principio-badge">Princípio 06</span>
+          <h3>Vendas é MATEMÁTICA</h3>
+        </div>
+        <p>
+          Vendas não é arte — é ciência com componentes humanos. Tem volume, tem taxa de conversão, tem tempo médio de resposta, tem taxa de follow up, tem qualidade de lead por canal. Quando você entende as métricas do seu próprio trabalho, você consegue identificar onde está o gargalo: é na primeira resposta? Na oferta? No follow up? Tratar vendas como matemática significa que você pode melhorar continuamente — porque o que é medido, é gerenciado.
+        </p>
+      </div>
+
+    </section>
+    <div class="divider"></div>
+
+    <!-- ══════════════════════ 3. ATENDIMENTO ══════════════════════ -->
+    <section id="atendimento">
+      <div class="section-header">
+        <div class="section-number">03</div>
+        <div>
+          <h2>Atendimento Comercial 5 Estrelas</h2>
+          <div class="subtitle">O script que guia qualquer conversa do início ao fechamento.</div>
+        </div>
+      </div>
+
+      <div class="script-flow">
+        <div class="script-step">
+          <div class="step-n">Etapa 1</div>
+          <div class="step-name">Quebra de Padrão</div>
+        </div>
+        <div class="script-step">
+          <div class="step-n">Etapa 2</div>
+          <div class="step-name">Introdução</div>
+        </div>
+        <div class="script-step active">
+          <div class="step-n">Etapa 3</div>
+          <div class="step-name">Mapeamento</div>
+        </div>
+        <div class="script-step">
+          <div class="step-n">Etapa 4</div>
+          <div class="step-name">Benefício</div>
+        </div>
+        <div class="script-step">
+          <div class="step-n">Etapa 5</div>
+          <div class="step-name">Racional</div>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>Quebra de Padrão e Ganho de Atenção</h3>
+            <p>
+              Todo lead que entra no Whatsapp está com a cabeça em mil lugares ao mesmo tempo. Antes de qualquer coisa, você precisa capturar a atenção real dele — não apenas uma leitura de mensagem. A quebra de padrão é o primeiro movimento: algo diferente do esperado, que faça o lead parar e prestar atenção no que está vindo.
+            </p>
+            <div class="detail">
+              <strong>Como fazer:</strong> Evite aberturas genéricas como "Olá, tudo bem?". Vá direto para algo relevante para ele — uma referência ao contexto de onde ele veio (anúncio, story, indicação), uma pergunta intrigante, ou uma afirmação que crie curiosidade imediata. O objetivo é: ele sair do piloto automático e entrar na conversa de verdade.
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>Introdução</h3>
+            <p>
+              Depois de ter a atenção, você se apresenta de forma estratégica. Não é apenas dizer nome e empresa — é construir credibilidade em 2 ou 3 linhas. O lead precisa entender quem você é e por que vale a pena continuar nessa conversa.
+            </p>
+            <div class="detail">
+              <strong>Como fazer:</strong> Apresente-se com confiança, cite o contexto (empresa, solução), e já conecte ao lead: "Falo com quem está buscando [resultado específico]". Isso filtra e qualifica o lead logo no início, além de passar autoridade desde o primeiro momento.
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>Mapeamento — A Etapa Mais Importante</h3>
+            <p>
+              O mapeamento é o coração do atendimento consultivo. É aqui que você descobre a realidade do lead: onde ele está, para onde quer ir, o que já tentou, o que está travando. Sem esse mapeamento, você apresenta solução às cegas — e solução apresentada sem contexto não converte.
+            </p>
+            <div class="detail">
+              <strong>Como fazer:</strong> Use perguntas abertas e sequenciais. Ouça mais do que fala. Quanto mais informação você coleta aqui, mais personalizada e precisa será a sua apresentação de solução. Perguntas chave: qual é o maior desafio hoje? O que você já fez para resolver? Qual resultado você precisa ter daqui a X meses?
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3>Benefício — Conecte a Solução à Dor Mapeada</h3>
+            <p>
+              Agora que você sabe exatamente o que o lead precisa, você apresenta como a solução resolve aquele problema específico. Não é um pitch genérico — é uma apresentação personalizada com base no mapeamento. O lead precisa ouvir a própria dor sendo reconhecida e depois ver como a solução resolve exatamente aquilo.
+            </p>
+            <div class="detail">
+              <strong>Como fazer:</strong> Use a estrutura: "Você me falou que [dor do lead]. A nossa solução resolve isso porque [benefício direto]. Isso significa que [resultado que o lead vai ter]." Seja específico. Benefício vago não converte. Benefício colado na dor real do lead, sim.
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <h3>Racional — O 80/20 do Fechamento</h3>
+            <p>
+              O racional é o argumento lógico-financeiro que justifica a decisão de compra. Muitas pessoas querem comprar mas precisam de uma justificativa racional para si mesmas (ou para o cônjuge, sócio, etc.). O racional entrega exatamente isso: por que faz sentido fazer isso agora, do ponto de vista prático e de retorno.
+            </p>
+            <div class="detail">
+              <strong>Como fazer:</strong> Apresente o retorno sobre o investimento de forma clara. Compare o custo da solução com o custo do problema não resolvido. Use números quando possível. Mostre que a lógica favorece a compra — e que não comprar tem um custo maior do que comprar.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <h3>🔑 A Regra de Ouro do Atendimento</h3>
+        <ul>
+          <li><strong>Sempre faça uma CTA</strong> ao final de cada mensagem — nunca deixe a conversa sem direcionamento claro.</li>
+          <li><strong>A última mensagem precisa ser nossa</strong> — quem fecha a conversa, controla o próximo movimento.</li>
+          <li><strong>Pergunte sempre</strong> — pergunta mantém a conversa viva e coleta informação.</li>
+          <li><strong>Faça CTA após responder o lead</strong> — não apenas quando você está "vendendo".</li>
+        </ul>
+      </div>
+
+    </section>
+    <div class="divider"></div>
+
+    <!-- ══════════════════════ 4. ETIQUETAS ══════════════════════ -->
+    <section id="etiquetas">
+      <div class="section-header">
+        <div class="section-number">04</div>
+        <div>
+          <h2>Sistema de Etiquetas</h2>
+          <div class="subtitle">O mapa que organiza todo o seu funil de atendimento no CRM.</div>
+        </div>
+      </div>
+
+      <p style="font-size:14px; color:var(--muted); line-height:1.75; margin-bottom:28px; max-width:680px;">
+        Etiquetas não são burocracia — são inteligência comercial. Elas dizem exatamente onde cada lead está na jornada e qual é o próximo passo. Um funil bem etiquetado é um funil que você controla. Sem etiquetas, você está gerenciando vendas no escuro.
+      </p>
+
+      <div class="tags-grid">
+
+        <div class="tag-card">
+          <span class="tag-badge tag-frio">Lead Frio</span>
+          <div class="tag-info">
+            <h4>Chegada de Leads</h4>
+            <p>Lead recém-chegado, sem interação ainda. Taxa de primeira resposta é o KPI crítico aqui.</p>
+            <div class="tag-action">→ Ação: Primeiro contato imediato, quebra de padrão</div>
+          </div>
+        </div>
+
+        <div class="tag-card">
+          <span class="tag-badge tag-morno">Lead Morno</span>
+          <div class="tag-info">
+            <h4>Respondeu, Não Avançou</h4>
+            <p>Houve interação, mas o lead não chegou na oferta ainda. Está no meio do processo de atendimento.</p>
+            <div class="tag-action">→ Ação: Continuar mapeamento, nutrir com benefício</div>
+          </div>
+        </div>
+
+        <div class="tag-card">
+          <span class="tag-badge tag-quente">Lead Quente</span>
+          <div class="tag-info">
+            <h4>Chegou na Oferta</h4>
+            <p>Lead já viu o preço e a proposta. É prioridade máxima no follow up diário.</p>
+            <div class="tag-action">→ Ação: Follow up diário, racional, urgência</div>
+          </div>
+        </div>
+
+        <div class="tag-card">
+          <span class="tag-badge tag-nego">Negociação</span>
+          <div class="tag-info">
+            <h4>Esperando o Momento de Compra</h4>
+            <p>Lead quer comprar mas tem um impedimento pontual: cartão virando, salário chegando, data específica.</p>
+            <div class="tag-action">→ Ação: Registrar data, follow up no dia exato</div>
+          </div>
+        </div>
+
+        <div class="tag-card">
+          <span class="tag-badge tag-opor">Oportunidade</span>
+          <div class="tag-info">
+            <h4>Links Prováveis</h4>
+            <p>Lead recebeu o link de compra. Alta probabilidade de conversão — monitorar de perto.</p>
+            <div class="tag-action">→ Ação: Follow up assertivo, remover obstáculos</div>
+          </div>
+        </div>
+
+        <div class="tag-card">
+          <span class="tag-badge tag-venda">Venda</span>
+          <div class="tag-info">
+            <h4>Comprou</h4>
+            <p>Entrou em contato, foi mapeado, conheceu o preço e comprou. Missão cumprida.</p>
+            <div class="tag-action">→ Ação: Registrar venda, atualizar projeção, onboarding</div>
+          </div>
+        </div>
+
+        <div class="tag-card">
+          <span class="tag-badge tag-desc">Descarte</span>
+          <div class="tag-info">
+            <h4>Motivos de Perda</h4>
+            <p>Lead não vai comprar agora. Registrar o motivo é essencial para inteligência do funil.</p>
+            <div class="tag-action">→ Ação: Registrar motivo na base de dados, arquivar</div>
+          </div>
+        </div>
+
+        <div class="tag-card">
+          <span class="tag-badge tag-meteor">METEÓRICO</span>
+          <div class="tag-info">
+            <h4>Lead / Link / Compra Meteórica</h4>
+            <p>Movimento ultra-rápido no funil: lead que entra e compra em menos de 24h, sem muita nutrição.</p>
+            <div class="tag-action">→ Ação: Prioridade máxima, resposta imediata</div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+    <div class="divider"></div>
+
+    <!-- ══════════════════════ 5. FOLLOW UP ══════════════════════ -->
+    <section id="followup">
+      <div class="section-header">
+        <div class="section-number">05</div>
+        <div>
+          <h2>Follow Up Assertivo</h2>
+          <div class="subtitle">A arte de manter o lead engajado sem parecer desesperado.</div>
+        </div>
+      </div>
+
+      <p style="font-size:14px; color:var(--muted); line-height:1.75; margin-bottom:28px; max-width:680px;">
+        A maioria das vendas não acontece no primeiro contato — acontece no follow up. Mas follow up mal feito afasta o lead. A diferença está na assertividade: seguir sem pressionar, sem suplicar, mantendo o lead caminhando pelo funil com naturalidade.
+      </p>
+
+      <div class="regra">
+        <div class="regra-icon">📌</div>
+        <p><strong>Regra dos 9 Follow Ups:</strong> Os leads dos últimos 3 dias precisam ter recebido ao menos 9 follow ups. Isso não é perseguição — é presença. Lead que recebe atenção consistente converte. Lead esquecido, some.</p>
+      </div>
+
+      <div class="regra">
+        <div class="regra-icon">⚡</div>
+        <p><strong>3 follows diários com prioridade:</strong> Oportunidades (links enviados) e Leads Quentes são a prioridade máxima do follow up do dia. São eles que estão mais perto da compra — não deixe esfriar.</p>
+      </div>
+
+      <div class="regra">
+        <div class="regra-icon">🎯</div>
+        <p><strong>Sempre CTA no follow up:</strong> Cada follow up precisa ter uma chamada para ação. Não é só "oi, como você está?" — é "oi, fulano, você conseguiu verificar a proposta? Posso tirar alguma dúvida antes de você decidir?"</p>
+      </div>
+
+      <div class="regra">
+        <div class="regra-icon">📲</div>
+        <p><strong>A última mensagem é sempre nossa:</strong> Seja um follow up, uma resposta ou uma reativação — você não deixa a conversa "em aberto" com a bola no seu lado. Sempre encerre com uma pergunta ou CTA que coloque a bola no lado do lead.</p>
+      </div>
+
+      <div class="regra">
+        <div class="regra-icon">🔄</div>
+        <p><strong>Social Seller — não espere só o lead entrar:</strong> Use o relacionamento com a audiência do Instagram ativamente. Stories, feed, DMs. Prospecção ativa é parte da rotina — não dependa só do fluxo de entrada de leads.</p>
+      </div>
+
+      <div class="highlight-box" style="margin-top:24px;">
+        <h3>📋 Sequência de Follow Up por Etiqueta</h3>
+        <ul>
+          <li><strong>Frio Dia:</strong> Lead ignorou a primeira copy — follow com abordagem diferente, ângulo novo</li>
+          <li><strong>Morno Dia:</strong> Avançou e parou antes da oferta — retomar com benefício personalizado</li>
+          <li><strong>Quente Dia:</strong> Já viu oferta, não fechou — racional + urgência + remover objeção</li>
+          <li><strong>Prazo a pagar (5 dias):</strong> Lead em negociação aguardando data — follow no dia, sem falta</li>
+          <li><strong>Mornos + últimos 3 dias:</strong> Reativar com novo ângulo ou conteúdo relevante</li>
+        </ul>
+      </div>
+
+    </section>
+    <div class="divider"></div>
+
+    <!-- ══════════════════════ 6. ROTINA ══════════════════════ -->
+    <section id="rotina">
+      <div class="section-header">
+        <div class="section-number">06</div>
+        <div>
+          <h2>Rotina do Vendedor 5 Estrelas</h2>
+          <div class="subtitle">O dia-a-dia estruturado que transforma esforço em resultado previsível.</div>
+        </div>
+      </div>
+
+      <p style="font-size:14px; color:var(--muted); line-height:1.75; margin-bottom:32px; max-width:680px;">
+        Resultado consistente não é sorte — é rotina. O vendedor que opera sem estrutura de dia acaba apagando incêndio o tempo todo e nunca sai do reativo. A rotina abaixo foi desenhada para maximizar produtividade, garantir que nenhum lead seja esquecido e ainda preservar energia para o terceiro turno.
+      </p>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-time">⏰ 07h30 — Abertura do Dia</div>
+          <div class="timeline-box">
+            <h3>Preparação e Organização</h3>
+            <ul>
+              <li>Até 08h30: Consolidado no grupo de operação, forms organizados e etiquetas atualizadas</li>
+              <li>09h00: Daily Comercial com o time</li>
+              <li>Daily Players: reuniões individuais com liderança conforme escala do time</li>
+              <li><strong style="color:var(--orange);">SINISTROS DE ATENDIMENTO:</strong> revisão de atendimentos críticos do dia anterior</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">⏰ 10h00 — Primeiro Turno de Vendas</div>
+          <div class="timeline-box">
+            <h3>Venda + Primeiro Follow Up</h3>
+            <ul>
+              <li>Projeção do dia no grupo Comercial (FEITO / META)</li>
+              <li>Só para link às 10h00 — foco total nos leads quentes e oportunidades</li>
+              <li>Às 11h00: follow nos leads do dia anterior + novos que chegaram</li>
+              <li>Follow no link às 12h00</li>
+            </ul>
+            <div class="rule">📌 REGRA: Os leads de 3 dias precisam ter recebido 9 follow ups</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">⏰ 12h20 — Pausa</div>
+          <div class="timeline-box">
+            <h3>Timing de Pausa</h3>
+            <ul>
+              <li>Pausa estratégica — descanso mental entre os turnos</li>
+              <li>Não misture pausa com resposta de leads — desconecte de verdade para voltar mais forte</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">⏰ 13h30 — 14h00 — Segundo Turno</div>
+          <div class="timeline-box">
+            <h3>Retomada + Follow Up + Reativação</h3>
+            <ul>
+              <li>Retomar atendimentos em aberto — falar com quem está em aberto desde a manhã</li>
+              <li>Ajustar conforme a rotina do especialista</li>
+              <li>Bloco de Follow Up / Reativação dos mortos do funil</li>
+              <li>Atualizar a projeção do dia no grupo</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">⏰ 15h00 — Treino (sugestão)</div>
+          <div class="timeline-box">
+            <h3>Horário de Desenvolvimento</h3>
+            <ul>
+              <li>Horário reservado para treinamento, role play, review de scripts</li>
+              <li>Vendedor que não se desenvolve, para de crescer</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">⏰ 18h00 — Terceiro Turno</div>
+          <div class="timeline-box">
+            <h3>VENDE! VENDE! VENDE! VENDE!</h3>
+            <ul>
+              <li>Terceiro turno é o mais importante: leads que trabalham durante o dia ficam disponíveis agora</li>
+              <li>Começar pelo link — leads do dia + base (prazo a pagar - 5 dias)</li>
+              <li>Quente diário e leads dos 3 últimos dias são prioridade</li>
+              <li>Reativar mornos dos últimos 3 dias e após frio</li>
+            </ul>
+            <div class="rule">🔥 A última mensagem do dia PRECISA SER NOSSA</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <div class="divider"></div>
+
+    <!-- ══════════════════════ 7. REATIVAÇÃO ══════════════════════ -->
+    <section id="reativacao">
+      <div class="section-header">
+        <div class="section-number">07</div>
+        <div>
+          <h2>Reativação</h2>
+          <div class="subtitle">Transformar leads parados em vendas reais.</div>
+        </div>
+      </div>
+
+      <p style="font-size:14px; color:var(--muted); line-height:1.75; margin-bottom:28px; max-width:680px;">
+        Reativação é uma das alavancas mais poderosas e menos usadas do comercial. A sua base de leads já possui pessoas que demonstraram interesse em algum momento. Com a abordagem certa, uma fração significativa dessas pessoas pode ser convertida — sem custo adicional de aquisição.
+      </p>
+
+      <div class="grid-2" style="margin-bottom:24px;">
+        <div class="card highlight">
+          <div class="tag">Regra</div>
+          <h3>Sempre faça CTA na reativação</h3>
+          <p>Reativar sem CTA é desperdício. Cada mensagem de reativação precisa ter um direcionamento claro: uma pergunta, um link, uma proposta. Nunca só "oi, sumido".</p>
+        </div>
+        <div class="card highlight">
+          <div class="tag">Regra</div>
+          <h3>A última mensagem é sempre nossa</h3>
+          <p>Seja qual for a resposta do lead, você sempre responde com CTA. Isso mantém você no controle do ritmo e evita que o lead esqueça da conversa.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon">🧊</div>
+          <h3>Reativação — Frio</h3>
+          <p>Lead ignorou a primeira copy. Aborde por um ângulo completamente diferente: novo benefício, nova prova social, nova urgência. Não repita o mesmo que ele ignorou.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌡️</div>
+          <h3>Reativação — Morno</h3>
+          <p>Avançou e parou antes da oferta. Ele chegou a se interessar — algo travou. Volte ao mapeamento: o que travou? Retome pelo ponto de parada com mais contexto.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔥</div>
+          <h3>Reativação — Quente</h3>
+          <p>Já viu a oferta, não fechou. Aqui é racional + urgência. Reforce o custo de não comprar. Pergunte diretamente o que falta para decidir.</p>
+        </div>
+      </div>
+
+      <div class="highlight-box" style="margin-top:24px;">
+        <h3>⚙️ Contingência — Quando o Sistema Cai</h3>
+        <ul>
+          <li>Cada vendedor deve ter 3 a 4 números cadastrados (contingência reforçada via Letalk - CRM)</li>
+          <li>API Oficial como canal primário de disparo</li>
+          <li>Chip de contingência: 4G, ferramentas como WaWeb, material de contingência avançada</li>
+          <li>Queda de sistema não pode parar o comercial — prepare o backup antes de precisar</li>
+        </ul>
+      </div>
+
+    </section>
+    <div class="divider"></div>
+
+    <!-- ══════════════════════ 8. CULTURA ══════════════════════ -->
+    <section id="cultura">
+      <div class="section-header">
+        <div class="section-number">08</div>
+        <div>
+          <h2>Cultura Comercial</h2>
+          <div class="subtitle">Os valores que definem como operamos como time.</div>
+        </div>
+      </div>
+
+      <p style="font-size:14px; color:var(--muted); line-height:1.75; margin-bottom:32px; max-width:680px;">
+        Técnica sem cultura é inconsistente. Um time que domina os scripts mas não compartilha valores vai criar ruído interno, falta de alinhamento e resultados voláteis. Cultura comercial forte é o que mantém o time unido sob pressão — e pressão no comercial é diária.
+      </p>
+
+      <div class="cultura-grid">
+
+        <div class="cultura-card">
+          <div class="cultura-icon">🤝</div>
+          <h3>Respeito</h3>
+          <p>
+            Respeito não é apenas educação nas palavras — é uma postura ativa de reconhecer o valor de cada pessoa no processo. Com clientes, respeito se traduz em paciência e escuta. Com o time, em comunicação clara. Com a supervisão, em transparência. Com a liderança, em honra — que significa cumprir o que foi combinado.
+          </p>
+          <div class="pillars">
+            <span class="pillar-tag">Clientes → Paciência</span>
+            <span class="pillar-tag">Time → Comunicação</span>
+            <span class="pillar-tag">Supervisão → Transparência</span>
+            <span class="pillar-tag">Liderança → Honra</span>
+            <span class="pillar-tag">Outros setores → Clareza</span>
+          </div>
+        </div>
+
+        <div class="cultura-card">
+          <div class="cultura-icon">⚖️</div>
+          <h3>Responsabilidade</h3>
+          <p>
+            Responsabilidade é o antídoto para a cultura da desculpa. No comercial, é fácil culpar o lead ("estava desqualificado"), o marketing ("os leads são fracos"), o produto ("o preço está caro"). O vendedor com responsabilidade olha para si mesmo primeiro: o que eu poderia ter feito diferente? Que ajuste no processo resolveria isso?
+          </p>
+          <div class="pillars">
+            <span class="pillar-tag">Donodade</span>
+            <span class="pillar-tag">Sem excusas</span>
+            <span class="pillar-tag">Melhoria contínua</span>
+          </div>
+        </div>
+
+        <div class="cultura-card">
+          <div class="cultura-icon">🎯</div>
+          <h3>Foco na Solução</h3>
+          <p>
+            Quando algo trava — lead difícil, sistema fora do ar, meta longe, objeção nova — o reflexo natural é focar no problema. A cultura que queremos construir é o oposto: primeiro pergunta "o que eu posso fazer agora para resolver ou contornar isso?" Foco na solução não ignora o problema — ele o usa como combustível para agir.
+          </p>
+          <div class="pillars">
+            <span class="pillar-tag">Proatividade</span>
+            <span class="pillar-tag">Adaptação</span>
+            <span class="pillar-tag">Mentalidade de crescimento</span>
+          </div>
+        </div>
+
+        <div class="cultura-card">
+          <div class="cultura-icon">📈</div>
+          <h3>Resultado</h3>
+          <p>
+            No final do dia, o time existe para gerar resultado. Respeito, responsabilidade e foco na solução são os meios — resultado é o fim. Mas resultado sustentável só vem de quem opera com cultura sólida. Time que tem resultado mas não tem cultura explode com o primeiro período difícil. Time com cultura e resultado, escala.
+          </p>
+          <div class="pillars">
+            <span class="pillar-tag">Metas claras</span>
+            <span class="pillar-tag">Cultura de dados</span>
+            <span class="pillar-tag">Projeção diária</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="highlight-box" style="margin-top:32px;">
+        <h3>📊 Cultura de Dados — Métricas que Importam</h3>
+        <ul>
+          <li><strong>Quantitativas:</strong> Geração de demanda por canal, número de vendas, taxa de conversão por etapa</li>
+          <li><strong>Qualitativas:</strong> Qualidade do lead por canal, realidade financeira do lead, contribuição de cada canal de aquisição</li>
+          <li><strong>Posicionamento:</strong> Entender o canal de aquisição (orgânico vs. tráfego, feed vs. stories vs. live) para calibrar abordagem</li>
+        </ul>
+      </div>
+
+    </section>
+
+  </div><!-- /content -->
+</main>
+
+<footer>
+  <p>WebScale © 2026 — Material de Treinamento Interno — Princípios Comerciais</p>
+  <div class="footer-logo">WEBSC▲LE.</div>
+</footer>
+
+<script>
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + entry.target.id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
