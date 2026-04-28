@@ -688,6 +688,174 @@
       .grid-3 { grid-template-columns: 1fr 1fr; }
       .grid-4 { grid-template-columns: 1fr 1fr; }
     }
+
+    /* ══════════════════════ SOCIAL SELLER ══════════════════════ */
+    /* --- GRID DE PRINCÍPIOS --- */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .principle-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .principle-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .principle-card h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; letter-spacing: 0.02em; }
+    .principle-card p  { font-size: 0.83rem; opacity: 0.75; line-height: 1.5; margin: 0; }
+
+    /* --- TABELA DE TEMPERATURA --- */
+    .temperature-table {
+      display: flex; flex-direction: column; gap: 1px;
+      margin: 1.5rem 0; border-radius: 12px; overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .temp-row {
+      display: grid; grid-template-columns: 180px 1fr;
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .temp-row:last-child { border-bottom: none; }
+    .temp-meta {
+      padding: 1rem 1.25rem; display: flex; flex-direction: column;
+      gap: 0.5rem; border-right: 1px solid rgba(255,255,255,0.06); justify-content: center;
+    }
+    .temp-badge {
+      font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.6rem;
+      border-radius: 20px; width: fit-content; letter-spacing: 0.04em;
+    }
+    .temp-badge.morno       { background: rgba(250,200,0,0.15); color: #fac800; }
+    .temp-badge.frio        { background: rgba(80,160,255,0.15); color: #50a0ff; }
+    .temp-badge.quente      { background: rgba(255,80,60,0.15);  color: #ff503c; }
+    .temp-badge.muito-quente{ background: rgba(255,100,0,0.2);   color: #ff6400; }
+    .temp-badge.frio-rec    { background: rgba(120,180,255,0.12);color: #78b4ff; }
+    .temp-badge.prospecção  { background: rgba(160,100,255,0.15);color: #a064ff; }
+    .temp-source { font-size: 0.82rem; font-weight: 600; opacity: 0.9; }
+    .temp-approach { padding: 1rem 1.25rem; }
+    .temp-approach p { font-size: 0.83rem; line-height: 1.55; margin: 0 0 0.4rem 0; opacity: 0.85; }
+    .temp-approach p:last-child { margin-bottom: 0; }
+    .temp-goal { opacity: 0.6 !important; font-style: italic; }
+
+    /* --- RDO CARDS --- */
+    .rdo-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .rdo-card {
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.5rem 1.25rem; text-align: center;
+    }
+    .rdo-letter { font-size: 2.5rem; font-weight: 900; color: var(--orange); line-height: 1; margin-bottom: 0.5rem; }
+    .rdo-card h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .rdo-card p  { font-size: 0.8rem; opacity: 0.75; line-height: 1.5; margin: 0; }
+
+    /* --- TECHNIQUE BOX --- */
+    .technique-box {
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+      border-left: 3px solid var(--orange);
+      border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin-top: 1.5rem;
+    }
+    .technique-box h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .technique-box p  { font-size: 0.83rem; line-height: 1.6; opacity: 0.85; margin: 0 0 0.75rem 0; }
+    .example-message {
+      background: rgba(255,255,255,0.04); border-left: 3px solid rgba(255,255,255,0.15);
+      padding: 0.75rem 1rem; border-radius: 0 8px 8px 0;
+      font-size: 0.83rem; font-style: italic; opacity: 0.8;
+    }
+
+    /* --- ROTINA SOCIAL SELLER --- */
+    .routine-timeline { display: flex; flex-direction: column; gap: 1px; margin: 1.5rem 0; }
+    .routine-item {
+      display: grid; grid-template-columns: 110px 1fr;
+      gap: 1rem; padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border); align-items: start;
+    }
+    .routine-item:last-child { border-bottom: none; }
+    .routine-freq {
+      font-size: 0.68rem; font-weight: 800; padding: 0.25rem 0.6rem;
+      border-radius: 20px; text-align: center; letter-spacing: 0.05em;
+      text-transform: uppercase; margin-top: 0.2rem; width: fit-content;
+    }
+    .routine-freq.daily     { background: rgba(255,100,0,0.2);   color: #ff6400; }
+    .routine-freq.weekly2   { background: rgba(250,200,0,0.15);  color: #fac800; }
+    .routine-freq.weekly    { background: rgba(80,200,120,0.15); color: #50c878; }
+    .routine-freq.monthly   { background: rgba(80,160,255,0.15); color: #50a0ff; }
+    .routine-freq.quarterly { background: rgba(160,100,255,0.15);color: #a064ff; }
+    .routine-content h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 0.35rem; }
+    .routine-content p  { font-size: 0.8rem; opacity: 0.75; line-height: 1.55; margin: 0 0 0.3rem 0; }
+    .routine-content ul { font-size: 0.8rem; opacity: 0.75; margin: 0.3rem 0 0 1.2rem; padding: 0; }
+    .routine-content li { line-height: 1.6; }
+
+    /* --- 4 PRINCÍPIOS FOLLOW UP --- */
+    .four-principles {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .fp-card {
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.25rem;
+    }
+    .fp-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--orange); color: #fff;
+      font-size: 0.75rem; font-weight: 800; margin-bottom: 0.5rem;
+    }
+    .fp-card h4 { font-size: 0.87rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .fp-card p  { font-size: 0.8rem; opacity: 0.75; line-height: 1.5; margin: 0; }
+
+    /* --- TACTICS GRID --- */
+    .tactics-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.75rem; margin: 1rem 0;
+    }
+    .tactic {
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px; padding: 1rem; text-align: center;
+    }
+    .tactic-icon { font-size: 1.5rem; margin-bottom: 0.4rem; }
+    .tactic h5 { font-size: 0.78rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .tactic p  { font-size: 0.72rem; opacity: 0.65; line-height: 1.45; margin: 0; }
+
+    /* --- FU STAGES --- */
+    .fu-stages { display: flex; flex-direction: column; gap: 0.5rem; margin: 1rem 0; }
+    .fu-stage {
+      display: grid; grid-template-columns: 60px 1fr;
+      gap: 1rem; background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px; padding: 0.9rem 1rem; align-items: center;
+    }
+    .fu-num { font-size: 0.72rem; font-weight: 900; color: var(--orange); letter-spacing: 0.05em; text-align: center; }
+    .fu-info h5 { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .fu-info p  { font-size: 0.78rem; opacity: 0.7; line-height: 1.5; margin: 0; }
+
+    /* --- CALLOUT SOCIAL SELLER --- */
+    .callout { border-radius: 10px; padding: 1rem 1.25rem; font-size: 0.83rem; line-height: 1.6; margin: 1.25rem 0; }
+    .callout-highlight {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+      border-left: 3px solid var(--orange);
+    }
+
+    /* --- SUBSECTION --- */
+    .subsection { margin-bottom: 2.5rem; }
+    .subsection-number {
+      font-size: 0.65rem; font-weight: 800; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--orange); margin-bottom: 0.5rem;
+    }
+    .subsection h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.75rem; }
+    .subsection > p { font-size: 0.88rem; line-height: 1.7; opacity: 0.8; margin-bottom: 1.25rem; }
+    .section-description { font-size: 0.9rem; opacity: 0.7; line-height: 1.65; margin-top: 0.5rem; }
+
+    @media (max-width: 640px) {
+      .rdo-cards    { grid-template-columns: 1fr; }
+      .temp-row     { grid-template-columns: 1fr; }
+      .temp-meta    { border-right: none; border-bottom: 1px solid var(--border); }
+      .routine-item { grid-template-columns: 1fr; }
+      .fu-stage     { grid-template-columns: 50px 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -711,6 +879,7 @@
   <a href="#rotina"><span class="dot"></span>Rotina do Vendedor</a>
   <a href="#reativacao"><span class="dot"></span>Reativação</a>
   <a href="#cultura"><span class="dot"></span>Cultura Comercial</a>
+  <a href="#social-seller"><span class="dot"></span>Social Seller</a>
 
   <span class="nav-label" style="margin-top:auto;">Time</span>
   <a href="#"><span class="dot"></span>WebScale — 2026</a>
@@ -1369,6 +1538,343 @@
           <li><strong>Qualitativas:</strong> Qualidade do lead por canal, realidade financeira do lead, contribuição de cada canal de aquisição</li>
           <li><strong>Posicionamento:</strong> Entender o canal de aquisição (orgânico vs. tráfego, feed vs. stories vs. live) para calibrar abordagem</li>
         </ul>
+      </div>
+
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ══════════════════════ 8. SOCIAL SELLER ══════════════════════ -->
+    <section id="social-seller">
+      <div class="section-header">
+        <div class="section-number">08</div>
+        <div>
+          <h2>Social Seller</h2>
+          <p class="section-description">O processo completo de prospecção e agendamento via redes sociais: desde a identificação do lead até o follow up estratégico.</p>
+        </div>
+      </div>
+
+      <!-- 01 PRINCÍPIOS -->
+      <div class="subsection">
+        <div class="subsection-number">01</div>
+        <h3>⚡ Princípios do Social Selling</h3>
+        <p>Antes da abordagem, vem a mentalidade. O Social Seller não vende o produto — <strong>vende a equipe para conquistar o contato de WhatsApp</strong>. O objetivo de cada interação é gerar confiança suficiente para o lead querer continuar a conversa em um canal direto.</p>
+
+        <div class="principles-grid">
+          <div class="principle-card">
+            <div class="principle-icon">🎯</div>
+            <h4>Venda a Equipe</h4>
+            <p>O objetivo da abordagem no Instagram é um só: conquistar o contato de WhatsApp do lead. Apresente a equipe como especialistas que podem ajudar — o produto vem depois, no canal direto.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-icon">🧠</div>
+            <h4>Personalização Real</h4>
+            <p>Cada mensagem deve mostrar que foi feita para aquela pessoa. Genérico não converte. A personalização começa antes de escrever a primeira palavra.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-icon">⚡</div>
+            <h4>Rapidez no Primeiro Contato</h4>
+            <p>O primeiro contato precisa acontecer em até <strong>5 minutos</strong> após o lead demonstrar interesse. A janela de atenção fecha rápido.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-icon">🤝</div>
+            <h4>Postura de Igualdade</h4>
+            <p>Trate o lead como par, não como superior. Nem submissão, nem arrogância. Confiança e valor em cada interação.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-icon">🔄</div>
+            <h4>Persistência Inteligente</h4>
+            <p>Variar a forma de contato para não parecer insistente. A persistência estratégica gera respeito — não incômodo.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-icon">💎</div>
+            <h4>Gerar Valor em Cada Interação</h4>
+            <p>O lead deve sentir que cada contato trouxe algo relevante para ele — uma percepção, um dado, uma conexão real.</p>
+          </div>
+        </div>
+
+        <div class="callout callout-highlight">
+          <strong>🌾 Sales Farming:</strong> O Social Seller pensa como um agricultor. Planta hoje, rega com consistência e colhe no tempo certo. Não existe atalho — existe processo.
+        </div>
+      </div>
+
+      <!-- 02 TEMPERATURA -->
+      <div class="subsection">
+        <div class="subsection-number">02</div>
+        <h3>🌡️ Temperatura e Origem do Lead</h3>
+        <p>A primeira etapa do Social Selling é <strong>identificar a origem do lead</strong>. Cada tipo de entrada exige uma abordagem diferente, um nível de profundidade distinto e uma leitura correta da temperatura do contato.</p>
+
+        <div class="temperature-table">
+          <div class="temp-row">
+            <div class="temp-meta">
+              <div class="temp-badge morno">🟡 Morno</div>
+              <div class="temp-source">Novo Seguidor</div>
+            </div>
+            <div class="temp-approach">
+              <p><strong>Abordagem:</strong> Visitar o perfil antes de falar. Buscar 1 ponto comum + 1 apreciação sincera + 1 reconhecimento. Enviar mensagem de ativação curta e personalizada. Sem oferta, sem pitch.</p>
+              <p class="temp-goal"><strong>Objetivo:</strong> Gerar conexão inicial e abrir porta para conversa futura.</p>
+            </div>
+          </div>
+          <div class="temp-row">
+            <div class="temp-meta">
+              <div class="temp-badge frio">🔵 Frio/Morno</div>
+              <div class="temp-source">Curtida</div>
+            </div>
+            <div class="temp-approach">
+              <p><strong>Abordagem:</strong> Curtida não é abertura — é apenas sinal de que a pessoa viu algo seu. Não abordar imediatamente. Aguardar mais uma interação (curtida repetida, reação, comentário). Se virar padrão, aí sim enviar mensagem leve.</p>
+              <p class="temp-goal"><strong>Objetivo:</strong> Transformar quem "passou por ali" em oportunidade real.</p>
+            </div>
+          </div>
+          <div class="temp-row">
+            <div class="temp-meta">
+              <div class="temp-badge quente">🔴 Quente</div>
+              <div class="temp-source">Reação (Stories/Feed)</div>
+            </div>
+            <div class="temp-approach">
+              <p><strong>Abordagem:</strong> Reação é uma abertura explícita — o lead está dizendo "estou aqui, vi você." Entrar no perfil imediatamente, mandar mensagem de ativação + elogio sincero + pergunta estratégica ligada à narrativa do produto. Pode conduzir direto para a necessidade.</p>
+              <p class="temp-goal"><strong>Objetivo:</strong> Aproveitar o momento exato em que a pessoa demonstrou interesse.</p>
+            </div>
+          </div>
+          <div class="temp-row">
+            <div class="temp-meta">
+              <div class="temp-badge morno">🟡 Morno/Quente</div>
+              <div class="temp-source">Comentário</div>
+            </div>
+            <div class="temp-approach">
+              <p><strong>A) Comentário de interesse direto (quente):</strong> Ex.: "Quero saber mais", "Me chama." → Chamada imediata no direct, buscar necessidade → oferecer agendamento.</p>
+              <p><strong>B) Comentário social/aleatório (morno):</strong> Ex.: "Amei!", "Top!" → Visitar o perfil, mensagem leve e sincera agradecendo. Buscar conexão, não venda.</p>
+              <p class="temp-goal"><strong>Objetivo:</strong> Converter engajamento público em conversa privada.</p>
+            </div>
+          </div>
+          <div class="temp-row">
+            <div class="temp-meta">
+              <div class="temp-badge muito-quente">🔥 Muito Quente</div>
+              <div class="temp-source">Direct (DM)</div>
+            </div>
+            <div class="temp-approach">
+              <p><strong>Abordagem:</strong> Entrada mais importante — maior taxa de fechamento. Responder rápido (sem parecer desesperado). Falar pouco e direcionado. Identificar necessidade o mais cedo possível. Conduzir com firmeza para o agendamento. <strong>Nunca deixar o lead dominar o ritmo da conversa.</strong></p>
+              <p class="temp-goal"><strong>Objetivo:</strong> Levar o lead direto para a sessão estratégica.</p>
+            </div>
+          </div>
+          <div class="temp-row">
+            <div class="temp-meta">
+              <div class="temp-badge frio-rec">❄️ Fria/Recuperável</div>
+              <div class="temp-source">Reativação (Antigos)</div>
+            </div>
+            <div class="temp-approach">
+              <p><strong>Abordagem:</strong> Interagir primeiro no perfil da pessoa (curtidas, comentários sinceros). Fazer a pessoa lembrar de você ANTES de entrar no direct. Depois, mensagem leve, simpática e contextual.</p>
+              <p class="temp-goal"><strong>Objetivo:</strong> Reacender o relacionamento e voltar ao fluxo.</p>
+            </div>
+          </div>
+          <div class="temp-row">
+            <div class="temp-meta">
+              <div class="temp-badge prospecção">🎯 Fria (Ativa)</div>
+              <div class="temp-source">Prospecção em Casa</div>
+            </div>
+            <div class="temp-approach">
+              <p><strong>Abordagem:</strong> Visitar perfis qualificados manualmente. Fazer leitura visual rápida (bio, posts, nicho, maturidade). Mensagem de ativação bem personalizada — elogio muito mais forte que nos outros casos. Zero pitch. Criar conexão REAL.</p>
+              <p class="temp-goal"><strong>Objetivo:</strong> Gerar abertura onde não havia nenhuma.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 RDO -->
+      <div class="subsection">
+        <div class="subsection-number">03</div>
+        <h3>🛡️ Quebra de Objeções — RDO</h3>
+        <p>Objeção não é rejeição — é parte da jornada. O lead só se opõe a algo quando está, de alguma forma, envolvido. Dominar o RDO é o que diferencia o Social Seller mediano do de alta performance.</p>
+
+        <div class="rdo-cards">
+          <div class="rdo-card">
+            <div class="rdo-letter">R</div>
+            <h4>Reflexo</h4>
+            <p>Resposta automática sem pensar. "Não tenho interesse" dito no piloto automático. <strong>Como agir:</strong> Não recue. O lead nem processou o que você disse.</p>
+          </div>
+          <div class="rdo-card">
+            <div class="rdo-letter">D</div>
+            <h4>Dispensa</h4>
+            <p>O lead quer encerrar a conversa por educação. <strong>Como agir:</strong> Reconheça, mas mantenha a proposta de valor com leveza.</p>
+          </div>
+          <div class="rdo-card">
+            <div class="rdo-letter">O</div>
+            <h4>Objeção Real</h4>
+            <p>Existe uma razão concreta. "Não tenho dinheiro agora", "Não é o momento." <strong>Como agir:</strong> Aprofunde, entenda o que está por trás e use as técnicas de quebra.</p>
+          </div>
+        </div>
+
+        <div class="technique-box">
+          <h4>💡 Técnica: Concordar para Discordar</h4>
+          <p>As pessoas esperam resistência em uma conversa de vendas. Quando o Social Seller <strong>concorda inicialmente</strong> com a objeção, ele quebra o padrão de defesa do lead, gerando abertura. Depois, reconduz a conversa com argumentos lógicos ou emocionais, mostrando um novo ponto de vista.</p>
+          <div class="example-message">"Eu entendo que parece não ser o melhor momento — e justamente por isso vale essa conversa rápida, para você saber como resolver isso quando for a hora certa."</div>
+        </div>
+      </div>
+
+      <!-- 04 ROTINA ON-GOING -->
+      <div class="subsection">
+        <div class="subsection-number">04</div>
+        <h3>📅 Rotina do Social Selling (On-Going)</h3>
+        <p>A rotina do Social Seller combina treinamentos diários, análises semanais e revisões periódicas para garantir consistência na performance e melhoria contínua.</p>
+
+        <div class="routine-timeline">
+          <div class="routine-item">
+            <div class="routine-freq daily">Diário</div>
+            <div class="routine-content">
+              <h4>Quick Check-in — Treinamento Diário</h4>
+              <p><strong>Role Play diário:</strong> Simulações de conversas reais no Instagram, ajustando tom e linguagem para leads de alto nível. Roleplays às 8h45.</p>
+              <p><strong>Alinhamento de metas:</strong> Planejamento de estratégias de abordagem e definição de ações específicas para engajamento com novos seguidores.</p>
+            </div>
+          </div>
+          <div class="routine-item">
+            <div class="routine-freq weekly2">2x/semana</div>
+            <div class="routine-content">
+              <h4>Análise Pontual de Interações no Instagram</h4>
+              <p>Análise detalhada de uma conversa real (DM ou comentário) para identificar oportunidades de melhoria em tom, timing e estratégia. Feedback sobre como otimizar o relacionamento com leads e aumentar a taxa de resposta.</p>
+            </div>
+          </div>
+          <div class="routine-item">
+            <div class="routine-freq weekly">1x/semana</div>
+            <div class="routine-content">
+              <h4>Pipeline Review — Análise de Perfis de Leads</h4>
+              <p>Estudo dos novos seguidores e leads: identificação de padrões de comportamento e interesses. Segmentação e definição de estratégias para aumentar a eficiência no follow-up.</p>
+            </div>
+          </div>
+          <div class="routine-item">
+            <div class="routine-freq weekly">1x/semana</div>
+            <div class="routine-content">
+              <h4>Sessão Motivacional</h4>
+              <p>Compartilhamento de conquistas e resultados do time. Técnicas para lidar com rejeições e manter a energia alta. Treinamento focado em superar objeções.</p>
+            </div>
+          </div>
+          <div class="routine-item">
+            <div class="routine-freq monthly">2x/mês</div>
+            <div class="routine-content">
+              <h4>Performance Review — Análise de Resultados e Métricas</h4>
+              <p>Revisão de KPIs principais:</p>
+              <ul>
+                <li>Número de novos seguidores abordados</li>
+                <li>Taxa de conversão de abordagens em agendamentos</li>
+                <li>Tempo médio de resposta às interações</li>
+              </ul>
+              <p>Identificação de gargalos e estratégias para aumentar a eficiência no funil.</p>
+            </div>
+          </div>
+          <div class="routine-item">
+            <div class="routine-freq quarterly">1x/trimestre</div>
+            <div class="routine-content">
+              <h4>Revisão Completa do Processo</h4>
+              <p>Revisão detalhada de: Guia de Social Selling, Script de Abordagem, Script de Follow-up e Treinamento de Quebra de Objeções. Atualização e alinhamento das boas práticas para o Instagram como canal de prospecção.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 FOLLOW UP -->
+      <div class="subsection">
+        <div class="subsection-number">05</div>
+        <h3>🔄 Follow Up no Social Selling</h3>
+
+        <div class="four-principles">
+          <div class="fp-card">
+            <span class="fp-num">1</span>
+            <h4>Persista</h4>
+            <p>O sucesso do follow up vem da consistência. Não desista antes do lead "quebrar" — muitas vezes o SDR para justo quando o lead estava prestes a converter.</p>
+          </div>
+          <div class="fp-card">
+            <span class="fp-num">2</span>
+            <h4>Seja Criativo e Personalizado</h4>
+            <p>Adapte a abordagem para cada prospecto. Repetir a mesma mensagem é a forma mais rápida de ser ignorado definitivamente.</p>
+          </div>
+          <div class="fp-card">
+            <span class="fp-num">3</span>
+            <h4>Mude o Ângulo</h4>
+            <p>Se uma abordagem não funcionar, tente outra. Novo canal, novo tom, novo benefício. A variação é a chave da persistência inteligente.</p>
+          </div>
+          <div class="fp-card">
+            <span class="fp-num">4</span>
+            <h4>Seja Curto e Constante</h4>
+            <p>Idealmente 1x por dia ou mais. Mensagens longas afastam — mensagens curtas e frequentes mantêm presença.</p>
+          </div>
+        </div>
+
+        <h4 style="margin-top:2rem; margin-bottom:1rem; font-size:0.95rem;">Estratégias Táticas de Follow Up</h4>
+        <div class="tactics-grid">
+          <div class="tactic">
+            <div class="tactic-icon">👀</div>
+            <h5>Ícone "Olho"</h5>
+            <p>Lembrete visual simples que reativa o interesse sem parecer invasivo.</p>
+          </div>
+          <div class="tactic">
+            <div class="tactic-icon">❤️</div>
+            <h5>Reação nos Stories</h5>
+            <p>Reações leves mantêm contato e reforçam o relacionamento. "Disse tudo!", "Bem por aí!"</p>
+          </div>
+          <div class="tactic">
+            <div class="tactic-icon">🔀</div>
+            <h5>Mudança de Canal</h5>
+            <p>Se ignorado no WhatsApp → Instagram. Se ignorado no Instagram → WhatsApp. Eventos presenciais também.</p>
+          </div>
+          <div class="tactic">
+            <div class="tactic-icon">🙏</div>
+            <h5>Desculpa pela Falta de Resposta</h5>
+            <p>Dar um motivo natural para a ausência: "Correria aí, meu caro? Me avisa!"</p>
+          </div>
+          <div class="tactic">
+            <div class="tactic-icon">🎥</div>
+            <h5>Vídeo Áudio no WhatsApp</h5>
+            <p>Enviar vídeo enquanto grava áudio — interação mais pessoal e dinâmica.</p>
+          </div>
+        </div>
+
+        <h4 style="margin-top:2rem; margin-bottom:1rem; font-size:0.95rem;">Etapas do Follow Up</h4>
+        <div class="fu-stages">
+          <div class="fu-stage">
+            <div class="fu-num">FU 1</div>
+            <div class="fu-info">
+              <h5>Primeira Tentativa</h5>
+              <p>Prospecto não respondeu no começo. Abordagem leve. Pode ser descartado se não houver interação inicial.</p>
+            </div>
+          </div>
+          <div class="fu-stage">
+            <div class="fu-num">FU 2</div>
+            <div class="fu-info">
+              <h5>Engajamento Interrompido</h5>
+              <p>Lead demonstrou interesse e engajou, mas parou no meio da conversa. Reativar de forma natural e personalizada.</p>
+            </div>
+          </div>
+          <div class="fu-stage">
+            <div class="fu-num">FU 3</div>
+            <div class="fu-info">
+              <h5>Finalização Interrompida</h5>
+              <p>Prospecto chegou ao final da sequência mas não respondeu. Pode querer, mas não estar disponível. <strong>Framework: Saudação + Desculpa + Proposta de horários.</strong></p>
+            </div>
+          </div>
+          <div class="fu-stage">
+            <div class="fu-num">FU 4</div>
+            <div class="fu-info">
+              <h5>No-Show — Agendado, Não Compareceu</h5>
+              <p>Prospecto confirmou mas não apareceu. Nova tentativa para reagendar com empatia.</p>
+            </div>
+          </div>
+          <div class="fu-stage">
+            <div class="fu-num">FU 5</div>
+            <div class="fu-info">
+              <h5>Pós-Agendamento</h5>
+              <p>Assistiu à apresentação mas não adquiriu. Nova tentativa estratégica dentro do mesmo mês.</p>
+            </div>
+          </div>
+          <div class="fu-stage">
+            <div class="fu-num">FU 6</div>
+            <div class="fu-info">
+              <h5>Relacionamento de Longo Prazo (Sales Farms)</h5>
+              <p>Lead demonstrou interesse mas não chegou à apresentação. Nutrir para conversão futura. Conversão esperada de 2% via reativação com e-mail, SMS e WhatsApp.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout callout-highlight" style="margin-top:1.5rem;">
+          <strong>📋 Framework FU Nível 3:</strong> Saudação + Desculpa pela falta de resposta + Proposta de horários. <em>"Oi, Leo! Tudo bem, meu caro? Fechando a agenda da semana e lembrei de ti. Como você está na terça às 14h, 17h ou quarta às 16h?"</em>
+        </div>
       </div>
 
     </section>
